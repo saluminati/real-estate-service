@@ -9,6 +9,18 @@ RSpec.describe V1::Property, type: :model do
         @property.valid?
         expect(@property).to be_valid
     end
+    
+    it 'does not validate a property if user_id is not present' do
+        @property.user_id = nil
+        @property.valid?
+        expect(@property.errors[:user_id]).to include("can't be blank")
+    end
+    
+    it 'does not validate a property if user_id is not a valid integer' do
+        @property.user_id = 'aasdasd'
+        @property.valid?
+        expect(@property.errors[:user_id]).to include("is not a number")
+    end
 
     it 'does not validate a property if title is not present' do
         @property.title = nil
