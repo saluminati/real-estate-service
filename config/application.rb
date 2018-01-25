@@ -26,14 +26,24 @@ module RealEstateService
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', :headers => :any, :methods => [:get, :post, :options]
+      end
+    end
+
     config.generators do |g|
        g.test_framework :rspec,
         view_specs: false,
-        helper_specs: false,
+        helper_specs: true,
         routing_specs: true,
         request_specs: true
     end
-    
+
+    config.AUTH_API_BASE_URL = 'http://localhost:4000/v1/'
+    config.AUTH_API_IDENTITY_URL = "#{config.AUTH_API_BASE_URL}identify"
+
   end
 end
