@@ -2,6 +2,8 @@
 
 This is a rails Real Estate Micro Service which exposes RESTFUL API and lets the user  to **CREATE**, **READ**, **UPDATE** and **DELETE** his/her properties. It also consumes the **[Auth Service Micro Service](https://github.com/saluminati/auth-service)**
 
+This microservice has a **Connection Helper** (connection_helper.rb) which is handling the communication with Auth Microservice and it is used in application controller.
+
 
 ### Installation
 after downloading the repository do the following steps:
