@@ -240,6 +240,12 @@ On Failure:
 HTTP Unprocessable status 422 with a json object of any validations issues
 ```
 
+## RSpec Testing ###
+
+Please change the token value to a valid token in **v1_properties_spec.rb** file on line number **6**
+@token = 'YOUR TOKEN'
+
+**This token can be obtained by signing in to the Auth Micro Service**
 
 
 ### TODOs
