@@ -91,4 +91,13 @@ RSpec.describe 'V1::Properties', type: :request do
 
     end
 
+    describe 'DELETE /v1_properties' do
+
+      it "deletes a specific property" do
+        delete "#{v1_properties_path}/#{@property.id}", headers: token_get(@token)
+        expect(response).to have_http_status(204)
+      end
+
+    end
+
 end
